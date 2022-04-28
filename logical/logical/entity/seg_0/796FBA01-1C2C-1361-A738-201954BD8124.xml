@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="796FBA01-1C2C-1361-A738-201954BD8124" name="Licencia_anulada">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:44:57 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_anulacion" id="53823B3A-EA2E-93B5-EEFC-EEF19233D181">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:45:09 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_anulacion" id="5D897BA2-0263-4A5A-3CAC-6EC624B61CB1">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:45:21 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="motivo" id="6D0001A5-D20E-1486-9282-2BCB7C80A569">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:45:34 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_licencia" id="10FDE5BD-B7DD-1403-D11F-78AF74300307">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:46:49 UTC</createdTime>
+<generatorID>2ED827CF-F8DB-C739-3BFC-A7CBAAFE0B0A</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>5E2ECFA8-B1AC-93DF-8CF0-248880325880</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="65E071B8-4125-E337-9B73-1F570A0117F9" name="Licencia_anulada PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:45:46 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>53823B3A-EA2E-93B5-EEFC-EEF19233D181</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

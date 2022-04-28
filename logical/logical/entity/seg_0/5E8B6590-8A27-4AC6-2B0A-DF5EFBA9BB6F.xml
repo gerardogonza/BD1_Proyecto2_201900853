@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5E8B6590-8A27-4AC6-2B0A-DF5EFBA9BB6F" name="Divorcio">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:51:02 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_divorcio" id="6B3CAF0A-542F-C6DC-19E3-5BB6B6D5E1D3">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:51:10 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Divorcio" id="1FBC129F-5975-63A9-8214-0622ABBB5127">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:51:39 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_detalle_matrimonio_divocio" id="99618BA2-9E97-A9DF-1216-CA8DEC24D81D">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:49:43 UTC</createdTime>
+<generatorID>3075B6B4-91C6-A8F3-22D1-B5FAD5C2664A</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>18325F3D-E002-92C8-D8F5-5789FDAD8C19</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F9ADF69B-2DB8-BE81-B92A-C6410097F299" name="Divorcio PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:03:47 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6B3CAF0A-542F-C6DC-19E3-5BB6B6D5E1D3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

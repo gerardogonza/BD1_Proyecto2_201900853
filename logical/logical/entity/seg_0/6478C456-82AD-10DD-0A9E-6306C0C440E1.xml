@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6478C456-82AD-10DD-0A9E-6306C0C440E1" name="detalle_matrimonio_divocio">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:47:48 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_detalle_matrimonio_divocio" id="18325F3D-E002-92C8-D8F5-5789FDAD8C19">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:48:19 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_matrimonio" id="64D1E586-2914-DC41-A2D5-EE43480288FD">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:48:50 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_divorcio" id="00FBAA7C-165F-466A-1746-C57F1E5CDA59">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:49:02 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUI" id="E11BF999-B2DE-865A-AF59-9DAECF0E29C6">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:50:14 UTC</createdTime>
+<generatorID>D8026719-01D7-623F-09F3-A703C82897E2</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>774A3C39-3EE8-7AAB-C6DA-D0B9181F14A4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUI_1" id="08DDCEA8-F468-76EF-E77B-12AEBB160EFA">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:51:47 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="11A86B4F-6058-84EC-0E8F-763027DC2836" name="detalle_matrimonio_divocio PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:49:01 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>18325F3D-E002-92C8-D8F5-5789FDAD8C19</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

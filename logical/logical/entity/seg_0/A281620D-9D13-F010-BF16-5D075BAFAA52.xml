@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A281620D-9D13-F010-BF16-5D075BAFAA52" name="Licencia">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:33:38 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_licencia" id="5E2ECFA8-B1AC-93DF-8CF0-248880325880">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:34:29 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_Tipo_Licencia" id="B5E899EA-6F8E-CD38-1534-6AB313D2989B">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:36:06 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Emision" id="24F1B5DD-2651-4647-5BEA-0B3109080E63">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:37:24 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Renovacion" id="D06E84E8-D047-1E99-1DF5-D4935271E9CD">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:37:50 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_TIPO" id="158ACF77-F102-228C-4136-0BB2FD40BF27">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 03:38:57 UTC</createdTime>
+<generatorID>5758136F-2D38-E893-C647-093B51C1DE98</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>1518DAB8-AD28-8886-3C8F-C35BEB9942EA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_detalle_persona" id="E3E1A50A-B868-053D-19D0-841344230A40">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:29:35 UTC</createdTime>
+<generatorID>D5954F71-6A7F-6D35-EC3B-54258353E821</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>E81F6795-1A57-DE51-C062-31BD061DA6A7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_anulacion" id="53F91D06-5532-899D-DB7F-F46BE16C1BD1">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:45:51 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D34C64D5-C9B4-2B8A-FF2D-C5262AED2BCE" name="Licencia PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 04:42:38 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5E2ECFA8-B1AC-93DF-8CF0-248880325880</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2DB6F603-506F-1F4D-7DD9-F7473E79DB6F" containerWithKeyObject="67614C3F-0A77-0A28-989B-ECFB660403A0" localFKIndex="97C69DF9-1E0F-A5B2-A56A-A93FB859917C" name="detalle_persona_Defuncion_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>F27B0099-AE68-0B28-CF48-61FE9B29C7B2</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<referredTableLongName>Defuncion</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D74008FC-C167-C0BA-91E5-ED8C6B9D3FBA</referredTableID>
+<keyObject>179E707F-A173-99E6-3FAA-D173828CA856</keyObject>
+<referredKeyID>179E707F-A173-99E6-3FAA-D173828CA856</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_defuncion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

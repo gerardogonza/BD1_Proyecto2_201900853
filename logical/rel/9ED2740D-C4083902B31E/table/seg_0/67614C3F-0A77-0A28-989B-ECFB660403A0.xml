@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="67614C3F-0A77-0A28-989B-ECFB660403A0" name="detalle_persona">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>07323AB8-DB03-8F9F-0CB8-883E02AC6538</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_detalle_persona" id="327FBFDC-E08B-034C-308A-AA07D50610A5">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>E81F6795-1A57-DE51-C062-31BD061DA6A7</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_licencia" id="FB0195DD-9196-249D-F2D5-E9C9FC696296">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>295D0783-013A-7A50-4FC3-70ED997637D5</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_defuncion" id="2EA98816-60BE-106C-0E84-5DED38067C96">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>E9CD1207-8499-5D65-B815-36E8193DB1E8</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="acta_nacimiento" id="C4179F5E-456A-FB9A-E90F-14FA1AF6B7F7">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>048037AD-A095-A868-027F-8E5E7D02A486</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Defuncion_id_defuncion" id="39A7A476-5E20-4410-4613-C3D2B646B06A">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>F540353C-AA9A-73B0-24B9-EA18931C4C3D</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2DB6F603-506F-1F4D-7DD9-F7473E79DB6F" referredColumn="AE9DB92C-F49E-C3F3-08B2-2B644AA7CFDE"/>
+</associations>
+</Column>
+<Column name="persona_CUI" id="D9C87F96-6103-AF1E-337E-C742170E284E">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>68B6B6C0-CBAF-8C91-D2E8-F3258E202ADE</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="28411C2F-95B5-A730-0617-16813E91E704" referredColumn="3D07E994-61E1-CA03-3B59-2520B9AD7BAD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FCCC951B-6FAD-FD34-A7F8-4B59081560E5" name="detalle_persona_PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>F7415A61-7A6A-7E7D-3559-03A41EA2751E</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="327FBFDC-E08B-034C-308A-AA07D50610A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3F062FA2-CD85-9F0F-FFE9-A5496FD315EC" name="detalle_persona__IDX">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>F27B0099-AE68-0B28-CF48-61FE9B29C7B2</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="39A7A476-5E20-4410-4613-C3D2B646B06A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A6BEBAA1-2550-82A0-B244-C3B00B2FBDD4" name="detalle_persona__IDXv1">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3D346FE7-92F3-AA5F-14FA-ED08DD5D05D8</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="D9C87F96-6103-AF1E-337E-C742170E284E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="97C69DF9-1E0F-A5B2-A56A-A93FB859917C" name="detalle_persona_Defuncion_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>F27B0099-AE68-0B28-CF48-61FE9B29C7B2</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39A7A476-5E20-4410-4613-C3D2B646B06A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="04374C26-F87B-F3FE-E772-22AFEBBD98D1" name="detalle_persona_persona_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>3D346FE7-92F3-AA5F-14FA-ED08DD5D05D8</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9C87F96-6103-AF1E-337E-C742170E284E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

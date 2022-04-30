@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4119EFAB-C211-FD80-ACFC-C3F4A74EE119" name="Licencia">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>A281620D-9D13-F010-BF16-5D075BAFAA52</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_licencia" id="6931F9AE-B531-CEF1-3CB9-57A9AD1FE754">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>5E2ECFA8-B1AC-93DF-8CF0-248880325880</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_Tipo_Licencia" id="24C66B7F-AB32-D9BF-1F66-A5D504993360">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>B5E899EA-6F8E-CD38-1534-6AB313D2989B</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_Emision" id="C1EED2D8-D3FD-08B6-751A-3B8987B934E4">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>24F1B5DD-2651-4647-5BEA-0B3109080E63</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_Renovacion" id="498DF754-820E-7323-C4D1-765CCBC97A10">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>D06E84E8-D047-1E99-1DF5-D4935271E9CD</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo_Licencia_ID_TIPO" id="9A4F392B-1C38-F2A5-E47F-A752BDF727BD">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>158ACF77-F102-228C-4136-0BB2FD40BF27</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6B8E2C9F-35C7-FF41-DB61-9DD86233BF5D" referredColumn="5509A069-96A5-BD5A-E3FC-17ED5C5B646D"/>
+</associations>
+</Column>
+<Column name="detalle_persona_id_detalle_persona" id="7AA13B13-C46F-3DD8-343D-ABE2DC96B53F">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>E3E1A50A-B868-053D-19D0-841344230A40</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CE910F6F-3F2F-0125-798B-E1075782DE5B" referredColumn="327FBFDC-E08B-034C-308A-AA07D50610A5"/>
+</associations>
+</Column>
+<Column name="id_anulacion" id="BD3F8973-3376-1D6B-FE32-61405852D22B">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>53F91D06-5532-899D-DB7F-F46BE16C1BD1</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E8CA8DCC-2C93-DFB2-1330-35A4B18FBC96" name="Licencia_PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>D34C64D5-C9B4-2B8A-FF2D-C5262AED2BCE</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6931F9AE-B531-CEF1-3CB9-57A9AD1FE754"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7DDE9046-A0A2-A355-E2DE-A36885DBA46B" name="Licencia_detalle_persona_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>D5954F71-6A7F-6D35-EC3B-54258353E821</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7AA13B13-C46F-3DD8-343D-ABE2DC96B53F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8981581C-BC37-8925-DEE8-D790F8DDA752" name="Licencia_Tipo_Licencia_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>5758136F-2D38-E893-C647-093B51C1DE98</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A4F392B-1C38-F2A5-E47F-A752BDF727BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

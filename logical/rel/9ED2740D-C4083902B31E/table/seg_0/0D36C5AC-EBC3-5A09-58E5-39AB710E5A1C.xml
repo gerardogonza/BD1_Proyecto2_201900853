@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0D36C5AC-EBC3-5A09-58E5-39AB710E5A1C" name="Divorcio">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>5E8B6590-8A27-4AC6-2B0A-DF5EFBA9BB6F</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_divorcio" id="9A565237-2C81-2D3E-7F43-5161C2B41529">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>6B3CAF0A-542F-C6DC-19E3-5BB6B6D5E1D3</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_Divorcio" id="16A527E3-94C0-00A3-56CA-7BD8F02CAFA2">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>1FBC129F-5975-63A9-8214-0622ABBB5127</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="detalle_matrimonio_divocio_id_detalle_matrimonio_divocio" id="8592AC81-1F02-150B-469F-EC7D3E8B38D0">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>99618BA2-9E97-A9DF-1216-CA8DEC24D81D</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C7F25EA8-8539-92F2-6D9A-4CDD79052D61" referredColumn="5CACFD53-91E6-B464-8523-3B55B24B942A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="455DAACE-E7A2-D9C5-1B7D-476D017DFFFD" name="Divorcio_PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>F9ADF69B-2DB8-BE81-B92A-C6410097F299</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A565237-2C81-2D3E-7F43-5161C2B41529"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ACD22051-EA8D-3D79-E11C-39EC288D9AE5" name="Divorcio_detalle_matrimonio_divocio_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 17:30:59 UTC</createdTime>
+<generatorID>3075B6B4-91C6-A8F3-22D1-B5FAD5C2664A</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8592AC81-1F02-150B-469F-EC7D3E8B38D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

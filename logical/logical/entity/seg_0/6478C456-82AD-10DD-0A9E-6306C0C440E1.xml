@@ -67,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="CUI_1" id="08DDCEA8-F468-76EF-E77B-12AEBB160EFA">
+<Attribute name="DPI" id="08DDCEA8-F468-76EF-E77B-12AEBB160EFA">
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 04:51:47 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>

@@ -53,6 +53,19 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Tercer_nombre" id="88476F64-F5EA-0AE8-2249-5A74E9AE4BA1">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-28 21:01:54 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="Fecha_Nacimiento" id="3FAA6267-8D61-388A-2DE6-329A506C2775">
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 03:43:30 UTC</createdTime>
@@ -168,6 +181,20 @@
 <item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_acta" id="876B78CA-8AF5-1F95-7736-91A19A764F25">
+<createdBy>jerry</createdBy>
+<createdTime>2022-04-29 03:24:02 UTC</createdTime>
+<generatorID>09041586-9A8A-ED7A-7F4C-9346164B7EBD</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>696F165A-5DA3-4FAA-9267-405CCD0ABB2E</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

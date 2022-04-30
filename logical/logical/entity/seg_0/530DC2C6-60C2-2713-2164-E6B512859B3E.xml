@@ -105,20 +105,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_detalle_persona" id="3695E4E3-4543-EA71-1416-89751848C991">
-<createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:38:50 UTC</createdTime>
-<generatorID>F38CD890-2AF6-0528-2D07-ABC138AC32E4</generatorID>
-<ownerDesignName>logical</ownerDesignName>
-<engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
-</engineerTo>
-<referedAttribute>E81F6795-1A57-DE51-C062-31BD061DA6A7</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="D755D389-8BAF-27AD-519B-A575CFCA5332" name="Acta_naciemineo PK">

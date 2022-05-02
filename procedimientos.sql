@@ -35,21 +35,21 @@ BEGIN
     SET contador= (SELECT COUNT(*)+1 FROM persona);
     IF codMunicipio >= 1000 then
         IF(contador<10)THEN
-            SET NEWCUI= CONCAT('11111111',contador,codMunicipio);
-        ELSE IF(contador<100) THEN
             SET NEWCUI= CONCAT('1111111',contador,codMunicipio);
+        ELSE IF(contador<100) THEN
+            SET NEWCUI= CONCAT('111111',contador,codMunicipio);
         ELSE IF(contador<1000)THEN
-            SET NEWCUI= CONCAT('11111',contador,codMunicipio);
+            SET NEWCUI= CONCAT('1111',contador,codMunicipio);
         END IF;
         END IF;
         END IF;
     ELSE
         IF(contador<10)THEN
-            SET NEWCUI= CONCAT('111111111',contador,codMunicipio);
+            SET NEWCUI= CONCAT('111111111',contador,'0',codMunicipio);
         ELSE IF(contador<100) THEN
-            SET NEWCUI= CONCAT('11111111',contador,codMunicipio);
+            SET NEWCUI= CONCAT('1111111',contador,'0',codMunicipio);
         ELSE IF(contador<1000)THEN
-            SET NEWCUI= CONCAT('1111111',contador,codMunicipio);
+            SET NEWCUI= CONCAT('111111',contador,'0',codMunicipio);
         END IF;
         END IF;
         END IF;
@@ -133,12 +133,112 @@ BEGIN
 RETURN (resultado);
 END;
 
-
-
     call AddNacimiento(1111111110101,1111111120101,'Edson','Diego',null,'2022-01-10',101,'M');
 
-DROP FUNCTION ValidarMayoriaEdad;
+# ------------------------------------------------------------- Consulta 2-------------------------------------------------------------------------------------
+
+DELIMITER $$
+CREATE PROCEDURE AddDefuncion(IN cuifallecido bigint,fechaFallecio date, motivo varchar(300))
+BEGIN
+    DECLARE DETALLEDEFUNCION INT;
+    DECLARE IDDEFUNCION INT;
+    DECLARE IDDETALLE INT;
+    SET IDDEFUNCION= (SELECT COUNT(*)+1 FROM defuncion);
+    SET IDDETALLE= (SELECT COUNT(*)+1 FROM detalle_persona);
+    IF verificarCUI(cuifallecido) then
+       IF ValidarFechaDefuncion(cuifallecido,fechaFallecio)>=0 THEN
+          IF validacionPrimeraVezFallicido(cuifallecido) THEN
+              SELECT id_detalle_persona FROM persona WHERE cui=cuifallecido INTO @DETALLEDEFUNCION;
+            IF BuscandoSiExisteActaDefuncion(@DETALLEDEFUNCION)THEN
+                SELECT 'ERROR: Esta persona ya Murio una vez';
+            ELSE
+                INSERT INTO defuncion(fecha_fallecimiento, motivo) VALUES (fechaFallecio,motivo);
+                UPDATE detalle_persona SET id_defuncion=IDDEFUNCION WHERE id_detalle_persona= @DETALLEDEFUNCION;
+            end if;
+            ELSE
+              INSERT INTO defuncion(fecha_fallecimiento, motivo) VALUES (fechaFallecio,motivo);
+              INSERT INTO detalle_persona(id_licencia, id_defuncion) VALUES (null,IDDEFUNCION);
+              UPDATE persona SET id_detalle_persona=IDDETALLE WHERE cui=cuifallecido;
+          end if;
+           ELSE
+           SELECT 'ERROR: FALLECIO ANTES DE SU NACIMIENTO';
+       end if;
+    ELSE
+        select 'No Exite CUI';
+    end if;
+END$$
+DELIMITER;
+
+CREATE FUNCTION verificarCUI(
+    dpi bigint
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (dpi in (select cui from persona)) THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+CREATE FUNCTION ValidarFechaDefuncion(
+    dpi bigint,
+    defuncion date
+)
+    RETURNS int
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado int;
+    SELECT TIMESTAMPDIFF(DAY ,fecha_nacimineto,defuncion)  INTO @EDAD
+    FROM persona
+    WHERE dpi=cui ;
+    SET resultado=@EDAD;
+    -- return the customer level
+    RETURN (resultado);
+END;
+CREATE FUNCTION validacionPrimeraVezFallicido(
+    dpi bigint
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF ( select id_detalle_persona from persona WHERE cui=dpi ) THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CREATE FUNCTION BuscandoSiExisteActaDefuncion(
+        id bigint
+    )
+        RETURNS boolean
+        DETERMINISTIC
+    BEGIN
+        DECLARE resultado boolean;
+        IF ( select id_defuncion from detalle_persona WHERE id_detalle_persona=id ) THEN
+            SET resultado=true;
+        ELSE
+            SET resultado = false;
+        END IF;
+        -- return the customer level
+        RETURN (resultado);
+    END;
+
+        CALL AddDefuncion(1111111640101,'2022-10-11','pruebas');
+# ---------------------------------------------------- CONSULTA 3 ------------------------------------------------------------------------
+
+
+drop procedure AddDefuncion;
+DROP FUNCTION ValidarFechaDefuncion;
 drop procedure AddNacimiento;
-drop function verificacionDatos;
-select * from persona;
+select * from persona ;
+select * from detalle_persona;
 select * from acta_nacimiento;
+SELECT * FROM defuncion;

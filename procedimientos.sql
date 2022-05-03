@@ -133,7 +133,7 @@ BEGIN
 RETURN (resultado);
 END;
 
-    call AddNacimiento(1111111110101,1111111120101,'Edson','Diego',null,'2022-01-10',101,'M');
+    call AddNacimiento(1209090600101,1232080975101,'David','Alejando','Saul','2020-01-10',409,'M');
 
 # ------------------------------------------------------------- Consulta 2-------------------------------------------------------------------------------------
 
@@ -231,13 +231,252 @@ CREATE FUNCTION BuscandoSiExisteActaDefuncion(
         RETURN (resultado);
     END;
 
-        CALL AddDefuncion(1111111640101,'2022-10-11','pruebas');
+        CALL AddDefuncion(1119706264101,'2022-10-11','mucho cigarro');
 # ---------------------------------------------------- CONSULTA 3 ------------------------------------------------------------------------
 
+DELIMITER $$
+CREATE PROCEDURE AddMatrimonio(IN dpiHombre bigint,dpiMujer bigint, fechaMatrimonio date)
+BEGIN
+    IF verificarDPI(dpiHombre) THEN
+        IF verificarDPI(dpiMujer) THEN
+            IF verificarSolteria(dpiHombre) THEN
+                IF verificarSolteria(dpiMujer) THEN
+                    IF ValidarFechaEmision(dpiHombre,fechaMatrimonio)>=18 THEN
+                        IF ValidarFechaEmision(dpiMujer,fechaMatrimonio)>=18 THEN
+                            IF validacionPrimeraVezFallicido(dpiHombre) THEN
+                                SELECT id_detalle_persona FROM persona WHERE cui=dpiHombre INTO @DETALLEDEFUNCION2;
+                                IF BuscandoSiExisteActaDefuncion(@DETALLEDEFUNCION2)THEN
+                                    SELECT 'ERROR: No tep puedes casar con alguien fallecido';
+                                ELSE
+                                    IF validacionPrimeraVezFallicido(dpiMujer) THEN
+                                        SELECT id_detalle_persona FROM persona WHERE cui=dpiMujer INTO @DETALLEDEFUNCION2;
+                                        IF BuscandoSiExisteActaDefuncion(@DETALLEDEFUNCION2)THEN
+                                            SELECT 'ERROR: No tep puedes casar con alguien fallecido';
+                                        ELSE
 
-drop procedure AddDefuncion;
-DROP FUNCTION ValidarFechaDefuncion;
-drop procedure AddNacimiento;
+                                            INSERT INTO matrimonio( dpi_hombre, dpi_mujer, fecha_matrimonio)
+                                            VALUES (dpiHombre,dpiMujer,fechaMatrimonio) ;
+                                            UPDATE persona SET estado='C' WHERE cui= dpiHombre;
+                                            UPDATE persona SET estado='C' WHERE cui= dpiMujer;
+                                            SELECT 'INGRESO Correcto';
+
+                                        end if;
+                                    ELSE
+                                        INSERT INTO matrimonio( dpi_hombre, dpi_mujer, fecha_matrimonio)
+                                        VALUES (dpiHombre,dpiMujer,fechaMatrimonio) ;
+                                        UPDATE persona SET estado='C' WHERE cui= dpiHombre;
+                                        UPDATE persona SET estado='C' WHERE cui= dpiMujer;
+                                        SELECT 'INGRESO Correcto';
+                                    end if;
+
+                                end if;
+                            ELSE
+                                IF validacionPrimeraVezFallicido(dpiMujer) THEN
+                                    SELECT id_detalle_persona FROM persona WHERE cui=dpiMujer INTO @DETALLEDEFUNCION2;
+                                    IF BuscandoSiExisteActaDefuncion(@DETALLEDEFUNCION2)THEN
+                                        SELECT 'ERROR: No tep puedes casar con alguien fallecido';
+                                    ELSE
+
+                                        INSERT INTO matrimonio( dpi_hombre, dpi_mujer, fecha_matrimonio)
+                                        VALUES (dpiHombre,dpiMujer,fechaMatrimonio) ;
+                                        UPDATE persona SET estado='C' WHERE cui= dpiHombre;
+                                        UPDATE persona SET estado='C' WHERE cui= dpiMujer;
+                                        SELECT 'INGRESO Correcto';
+
+                                    end if;
+                                ELSE
+                                    INSERT INTO matrimonio( dpi_hombre, dpi_mujer, fecha_matrimonio)
+                                    VALUES (dpiHombre,dpiMujer,fechaMatrimonio) ;
+                                    UPDATE persona SET estado='C' WHERE cui= dpiHombre;
+                                    UPDATE persona SET estado='C' WHERE cui= dpiMujer;
+                                    SELECT 'INGRESO Correcto';
+                                end if;
+                            end if;
+                        ELSE
+                            SELECT 'ERROR: Fecha de matrimonio no valida';
+                        end if;
+                        ELSE
+                            SELECT 'ERROR: Fecha de matrimonio no valida';
+                    end if;
+                ELSE
+                    SELECT 'ERROR: La mujer sigue casado';
+                end if;
+                ELSE
+            SELECT 'ERROR: El hombre sigue casado';
+            end if;
+        ELSE
+            SELECT 'ERROR: EL DPI Mujer esta mal escrito';
+        end if;
+    ELSE
+        SELECT 'ERROR: EL DPI Hombre esta mal escrito';
+    end if;
+END$$
+DELIMITER;
+
+CREATE FUNCTION verificarDPI(
+    dpi1 bigint
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (dpi1 in (select dpi from datos_dpi)) THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+CREATE FUNCTION verificarSolteria(
+    dpi1 bigint
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+IF (SELECT estado FROM persona WHERE cui=dpi1 )='S' THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CALL AddMatrimonio(1123462592101,1129958074101,'2025-10-12');
+# -------------------------------------------------- Registrar Divorcio -----------------------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE AddDivorcio(IN actaMatrimonio int,fechaDivorcio date)
+BEGIN
+    IF VerificarExistActaMatrimonio(actaMatrimonio) THEN
+      IF  VerificarMatrimonioNoAnulado(actaMatrimonio) THEN
+          SELECT 'ESTE MATRIMONIO YA FUE ANULADO';
+      ELSE
+
+          IF ValidarFechaDeDivorcio(actaMatrimonio,fechaDivorcio)>=0 THEN
+              INSERT INTO divorcio(fecha_divorcio, id_matrimonio)
+              VALUES (fechaDivorcio,actaMatrimonio);
+              SELECT dpi_hombre FROM matrimonio WHERE id_matrimonio=actaMatrimonio INTO @dpihom;
+              SELECT dpi_mujer FROM matrimonio WHERE id_matrimonio=actaMatrimonio INTO @dpimu;
+              UPDATE persona SET estado='S' WHERE cui= @dpihom;
+              UPDATE persona SET estado='S' WHERE cui=  @dpimu;
+              SELECT 'DIVORCIO CORRECTO';
+          ELSE
+              SELECT 'FECHA DIVORCIO NO VALIDA';
+          end if;
+      end if;
+        ELSE
+    SELECT 'ACTA DE MATRIMONIO NO EXISTE';
+    end if;
+END$$
+DELIMITER;
+
+CREATE FUNCTION VerificarExistActaMatrimonio(
+    acta int
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (acta in(select id_matrimonio from matrimonio)) THEN
+        SET resultado=true;
+        ELSE
+            SET resultado=false;
+    end if;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CREATE FUNCTION VerificarMatrimonioNoAnulado(
+    acta bigint
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (SELECT id_matrimonio FROM divorcio WHERE id_matrimonio=acta )=acta THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CREATE FUNCTION ValidarFechaDeDivorcio(
+    acta int,
+    fechadivor date
+)
+    RETURNS int
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado int;
+    SELECT TIMESTAMPDIFF(DAY ,fecha_matrimonio,fechadivor)  INTO @EDAD
+    FROM matrimonio
+    WHERE id_matrimonio=acta ;
+    SET resultado=@EDAD;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+
+CALL AddDivorcio(5,'2040-10-10');
+# ---------------------------------------------------- CONSULTA 8 ------------------------------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE generarDPI(IN cui bigint,fechaEmision date, municipio int)
+BEGIN
+  IF verificarCUI(cui) THEN
+      IF ValidarFechaEmision(cui,fechaEmision)>=18 THEN
+         INSERT INTO datos_dpi(dpi, cui, fecha_emision,residenciaActual)
+            VALUES (cui,cui,fechaEmision,municipio);
+         SELECT 'INGRESO CORRECTO';
+          ELSE
+          SELECT 'ERROR: AUN NO ES MAYOR DE EDAD';
+      end if ;
+      ELSE
+      SELECT 'ERROR: EL cui esta mal escrito';
+  end if;
+END$$
+DELIMITER;
+
+CREATE FUNCTION ValidarFechaEmision(
+    dpi bigint,
+    Emision date
+)
+    RETURNS int
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado int;
+    SELECT TIMESTAMPDIFF(YEAR ,fecha_nacimineto,Emision)  INTO @EDAD
+    FROM persona
+    WHERE dpi=cui ;
+    SET resultado=@EDAD;
+    -- return the customer level
+    RETURN (resultado);
+END;
+CALL generarDPI(1129958074101,'2020-08-23',101);
+
+# ---------------------------------------------- Consulta 9-----------------------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE getNacimiento(IN cui1 bigint)
+BEGIN
+    SELECT acta_nacimiento.id_acta,persona.cui,persona.primer_apellido,persona.segundo_apellido,persona.primer_nombre,persona.segundo_nombre,
+          acta_nacimiento.nombre_padre,acta_nacimiento.apellido_padre,acta_nacimiento.dpi_padre,acta_nacimiento.nombre_madre,acta_nacimiento.apellido_madre,
+           persona.fecha_nacimineto, municipio.nombre_municipio,departamento.nombre_departamento,persona.genero
+    from persona,acta_nacimiento,departamento,municipio
+    WHERE cui=cui1
+    AND persona.id_acta_nacimiento=acta_nacimiento.id_acta
+    AND persona.id_municipio=municipio.codigo_municipio
+    AND departamento.codigo_departamento=municipio.codigo_departamento;
+END$$
+DELIMITER;
+
+CALL getNacimiento(1111111630409);
+
+
+
+select * from datos_dpi;
 select * from persona ;
 select * from detalle_persona;
 select * from acta_nacimiento;

@@ -474,6 +474,70 @@ DELIMITER;
 
 CALL getNacimiento(1111111630409);
 
+# ------------------------------------------- Obtener DPI -----------------------------------------------------------------------------------
+DROP PROCEDURE getDPI;
+DELIMITER $$
+CREATE PROCEDURE getDPI(IN cui1 bigint)
+BEGIN
+
+    IF verificarDPI(cui1) THEN
+        SELECT nombre_departamento from persona,departamento,municipio
+        WHERE persona.cui=cui1
+        AND persona.id_municipio=municipio.codigo_municipio
+        AND municipio.codigo_departamento=departamento.codigo_departamento INTO @DepartamentoNacimineto;
+        SELECT nombre_municipio from persona,municipio
+        WHERE persona.cui=cui1
+          AND persona.id_municipio=municipio.codigo_municipio INTO @MunicipioNacimineto;
+
+        SELECT persona.cui,persona.primer_apellido,persona.segundo_apellido,persona.primer_nombre,segundo_nombre,
+               persona.fecha_nacimineto,@DepartamentoNacimineto,@MunicipioNacimineto,(departamento.nombre_departamento) as DEPVECINDAD,(municipio.nombre_municipio) as MuniVecindad,persona.genero
+        from datos_dpi,departamento,municipio,persona
+        WHERE datos_dpi.residenciaActual=municipio.codigo_municipio
+          AND departamento.codigo_departamento=municipio.codigo_departamento
+          AND persona.cui=cui1
+        AND datos_dpi.dpi=persona.cui;
+        ELSE
+        SELECT 'NO EXISTE DPI';
+    end if ;
+
+
+END$$
+DELIMITER;
+
+CALL getDPI(1129958074101);
+
+#------------------------------------------ .Obtener Divorcio ---------------------------------------------------
+DROP PROCEDURE getDivorcio;
+DELIMITER $$
+CREATE PROCEDURE getDivorcio()
+BEGIN
+    SELECT divorcio.id_matrimonio AS NoDivorcio,matrimonio.dpi_hombre,concat_ws(' ', persona.primer_nombre, persona.segundo_nombre,persona.primer_apellido
+        ,persona.segundo_apellido) as NombreHombre,matrimonio.dpi_mujer,fecha_divorcio  FROM divorcio,matrimonio,persona
+    WHERE divorcio.id_matrimonio=matrimonio.id_matrimonio
+    AND matrimonio.dpi_hombre=persona.cui;
+END$$
+DELIMITER;
+CALL getDivorcio();
+
+# -------------------------------------------- Acta De Defuncion -------------------------------------------------------
+DROP PROCEDURE getDefuncion;
+DELIMITER $$
+CREATE PROCEDURE getDefuncion(IN CUI1 bigint)
+BEGIN
+    SELECT defuncion.id_defuncion,persona.cui,concat_ws(' ', persona.primer_apellido,persona.segundo_apellido)AS Apellidos,
+           concat_ws(' ', persona.primer_nombre,persona.segundo_nombre)AS NOMBRES, defuncion.fecha_fallecimiento,departamento.nombre_departamento,
+           municipio.nombre_municipio
+    FROM defuncion,persona,departamento,municipio,detalle_persona
+    WHERE persona.cui=CUI1
+    AND   persona.id_detalle_persona=detalle_persona.id_detalle_persona
+    AND  detalle_persona.id_defuncion=defuncion.id_defuncion
+    AND   persona.id_municipio=municipio.codigo_municipio
+    AND  municipio.codigo_departamento=departamento.codigo_departamento;
+
+END$$
+DELIMITER;
+
+CALL getDefuncion(1111111620101);
 
 
 select * from datos_dpi;
@@ -481,3 +545,4 @@ select * from persona ;
 select * from detalle_persona;
 select * from acta_nacimiento;
 SELECT * FROM defuncion;
+select * from matrimonio;

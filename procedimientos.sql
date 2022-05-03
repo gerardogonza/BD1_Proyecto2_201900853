@@ -539,6 +539,26 @@ DELIMITER;
 
 CALL getDefuncion(1111111620101);
 
+# -------------------------------------------- Obtener Matrimonio -------------------------------------------------------\
+DROP PROCEDURE getMatrimonio;
+DELIMITER $$
+CREATE PROCEDURE getMatrimonio(IN acta int)
+BEGIN
+    SELECT concat_ws(' ',persona.primer_nombre,persona.segundo_nombre,persona.primer_apellido,persona.segundo_apellido)
+    FROM matrimonio,persona
+    WHERE matrimonio.id_matrimonio=acta
+      AND  persona.cui=matrimonio.dpi_mujer INTO  @NombreMujer;
+
+    SELECT id_matrimonio,dpi_hombre,concat_ws(' ',persona.primer_nombre,persona.segundo_nombre,persona.primer_apellido,persona.segundo_apellido)AS NombreHombre,
+           dpi_mujer,@NombreMujer,fecha_matrimonio
+    FROM matrimonio,persona
+        WHERE matrimonio.id_matrimonio=acta
+        AND  persona.cui=matrimonio.dpi_hombre;
+
+END$$
+DELIMITER;
+
+CALL getMatrimonio(1);
 
 select * from datos_dpi;
 select * from persona ;

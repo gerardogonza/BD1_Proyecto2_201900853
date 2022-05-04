@@ -97,6 +97,33 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="persona_CUI" id="269B8222-F19D-D307-C143-D9903889C4BB">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>9A4486F9-7B3A-9259-38DA-61C374A23E30</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="869F12CC-E447-D8BC-466B-60B3B81E0043" referredColumn="3D07E994-61E1-CA03-3B59-2520B9AD7BAD"/>
+</associations>
+</Column>
+<Column name="CUI_1" id="7A9520A4-1C4E-0197-0A9C-DB44BC61EF5D">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>E17D83EB-BDAC-FC40-D254-4575053F58CF</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="E8CA8DCC-2C93-DFB2-1330-35A4B18FBC96" name="Licencia_PK">
@@ -131,6 +158,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9A4F392B-1C38-F2A5-E47F-A752BDF727BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BF6F6EF3-2ED8-B68C-1FA8-30041CA43D52" name="Licencia_persona_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>215FCD07-D7CC-C3A2-0E5E-11C2CC7A67DA</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="269B8222-F19D-D307-C143-D9903889C4BB"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

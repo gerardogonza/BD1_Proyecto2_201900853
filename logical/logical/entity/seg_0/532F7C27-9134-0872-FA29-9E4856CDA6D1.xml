@@ -66,15 +66,29 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_detalle_matrimonio_divocio" id="9A8F3AB0-3BED-50B2-B0D3-F98DED157E21">
+<Attribute name="CUI" id="BED1217F-2C52-702B-E178-61B3D7C4555C">
 <createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:49:36 UTC</createdTime>
-<generatorID>53667FEA-D791-5C06-B96C-C39F912019E0</generatorID>
+<createdTime>2022-05-04 04:07:30 UTC</createdTime>
+<generatorID>4C257633-13C5-7A83-A4BC-C09F302D672D</generatorID>
 <ownerDesignName>logical</ownerDesignName>
 <engineerTo>
 <item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
 </engineerTo>
-<referedAttribute>18325F3D-E002-92C8-D8F5-5789FDAD8C19</referedAttribute>
+<referedAttribute>C9102DC0-BE0C-DACA-5919-25F6AA4A8315</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_divorcio" id="F33BC4EC-D2E3-6BD9-B641-53C3984C1D77">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:07:51 UTC</createdTime>
+<generatorID>FB8A401F-BC64-32DE-1C55-88F897F9AD03</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>6B3CAF0A-542F-C6DC-19E3-5BB6B6D5E1D3</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -86,8 +100,9 @@
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 04:03:41 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

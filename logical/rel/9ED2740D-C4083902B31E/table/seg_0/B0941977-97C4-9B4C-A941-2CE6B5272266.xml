@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B0941977-97C4-9B4C-A941-2CE6B5272266" name="Datos_DPI">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>9B6344B1-F94C-28DD-5608-5C8DEAF02761</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DPI" id="4E759E53-1550-C24B-8BE7-6FD67E477E93">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>D5423093-3AC2-79CD-D51D-97BF21C56A15</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_Emision" id="EC7D7BA3-CE97-33B6-4DC9-6BCCC222D087">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>8D4B57CE-F2B1-A8EE-ADE1-58B451E1AF71</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="persona_CUI" id="7A616671-4E88-1857-E4DF-D1EDBB3819C0">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>C9102DC0-BE0C-DACA-5919-25F6AA4A8315</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6A8B82FF-BD7F-D8CA-C05A-7292EA67850F" referredColumn="3D07E994-61E1-CA03-3B59-2520B9AD7BAD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="32299A1E-47BE-E1A6-C941-8B97132B4438" name="Datos_DPI_PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>81A6B741-C9EC-1F6E-52CF-661EE897DD86</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A616671-4E88-1857-E4DF-D1EDBB3819C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E00563AB-7AF5-84A7-5D0A-D712F425BDC1" name="Datos_DPI_persona_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>6401E95C-CA35-35FB-88B1-4776472D4165</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A616671-4E88-1857-E4DF-D1EDBB3819C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

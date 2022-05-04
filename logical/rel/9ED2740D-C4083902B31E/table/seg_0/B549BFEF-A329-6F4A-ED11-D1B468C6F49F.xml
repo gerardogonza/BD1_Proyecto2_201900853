@@ -66,8 +66,35 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Datos_DPI_persona_CUI" id="EBCACD2C-5FB7-572B-E5B4-1036B9D14961">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>BED1217F-2C52-702B-E178-61B3D7C4555C</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="C05D6A72-8CFB-566D-ED3D-8BA3DB56B97C" referredColumn="5CACFD53-91E6-B464-8523-3B55B24B942A"/>
+<colAssociation fkAssociation="94947EE4-9341-6B22-911E-9F2FCADEE766" referredColumn="7A616671-4E88-1857-E4DF-D1EDBB3819C0"/>
+</associations>
+</Column>
+<Column name="Divorcio_id_divorcio" id="4AD93798-B0AA-1098-BF5B-EBEF7CF83105">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>F33BC4EC-D2E3-6BD9-B641-53C3984C1D77</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2943EFB3-2D4C-638F-F571-3B7396729925" referredColumn="9A565237-2C81-2D3E-7F43-5161C2B41529"/>
 </associations>
 </Column>
 </columns>
@@ -84,15 +111,37 @@
 <colUsage columnID="2D35749A-D71D-BA33-19D1-93BDAC6F344B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B55650F3-C93E-C3FE-F420-750A1FC7C72B" name="Matrimonio_detalle_matrimonio_divocio_FK">
+<ind_PK_UK id="A2CA4585-8F77-B7DF-5548-1BCF22629908" name="Matrimonio__IDX">
 <createdBy>jerry</createdBy>
-<createdTime>2022-04-28 17:30:59 UTC</createdTime>
-<generatorID>53667FEA-D791-5C06-B96C-C39F912019E0</generatorID>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>FB8A401F-BC64-32DE-1C55-88F897F9AD03</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="4AD93798-B0AA-1098-BF5B-EBEF7CF83105"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="095EBC4F-7353-4511-7A76-767231244575" name="Matrimonio_Datos_DPI_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>4C257633-13C5-7A83-A4BC-C09F302D672D</generatorID>
 <ownerDesignName>logical</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="5CE96F6A-363A-3B04-A365-E4777371FF20"/>
+<colUsage columnID="EBCACD2C-5FB7-572B-E5B4-1036B9D14961"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58D1AE8C-40B0-2BFB-0DCF-74CD82AB896F" name="Matrimonio_Divorcio_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>FB8A401F-BC64-32DE-1C55-88F897F9AD03</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4AD93798-B0AA-1098-BF5B-EBEF7CF83105"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

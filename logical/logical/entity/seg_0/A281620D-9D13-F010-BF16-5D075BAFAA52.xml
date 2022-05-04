@@ -80,23 +80,36 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_detalle_persona" id="E3E1A50A-B868-053D-19D0-841344230A40">
+<Attribute name="id_anulacion" id="53F91D06-5532-899D-DB7F-F46BE16C1BD1">
 <createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:29:35 UTC</createdTime>
-<generatorID>D5954F71-6A7F-6D35-EC3B-54258353E821</generatorID>
+<createdTime>2022-04-28 04:45:51 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
 <engineerTo>
 <item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
 </engineerTo>
-<referedAttribute>E81F6795-1A57-DE51-C062-31BD061DA6A7</referedAttribute>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_anulacion" id="53F91D06-5532-899D-DB7F-F46BE16C1BD1">
+<Attribute name="CUI" id="9A4486F9-7B3A-9259-38DA-61C374A23E30">
 <createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:45:51 UTC</createdTime>
+<createdTime>2022-05-04 04:06:35 UTC</createdTime>
+<generatorID>215FCD07-D7CC-C3A2-0E5E-11C2CC7A67DA</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+</engineerTo>
+<referedAttribute>774A3C39-3EE8-7AAB-C6DA-D0B9181F14A4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUI_1" id="E17D83EB-BDAC-FC40-D254-4575053F58CF">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:06:42 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
 <engineerTo>
 <item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
@@ -113,8 +126,9 @@
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 04:42:38 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

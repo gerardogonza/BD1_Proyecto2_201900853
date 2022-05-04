@@ -37,19 +37,34 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_detalle_matrimonio_divocio" id="1988DEF8-E7A9-D54D-B9A0-B0F58C88CCFC">
+<Attribute name="CUI" id="C9102DC0-BE0C-DACA-5919-25F6AA4A8315">
 <createdBy>jerry</createdBy>
-<createdTime>2022-04-28 21:55:54 UTC</createdTime>
-<generatorID>731E26DC-CFF0-72DB-6B7D-B7F1EC3C33F4</generatorID>
+<createdTime>2022-05-04 04:07:15 UTC</createdTime>
+<generatorID>6401E95C-CA35-35FB-88B1-4776472D4165</generatorID>
 <ownerDesignName>logical</ownerDesignName>
 <engineerTo>
 <item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
 </engineerTo>
-<referedAttribute>18325F3D-E002-92C8-D8F5-5789FDAD8C19</referedAttribute>
+<referedAttribute>774A3C39-3EE8-7AAB-C6DA-D0B9181F14A4</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="81A6B741-C9EC-1F6E-52CF-661EE897DD86" name="Datos_DPI PK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:07:15 UTC</createdTime>
+<ownerDesignName>logical</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C9102DC0-BE0C-DACA-5919-25F6AA4A8315</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

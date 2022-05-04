@@ -40,28 +40,15 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_detalle_matrimonio_divocio" id="99618BA2-9E97-A9DF-1216-CA8DEC24D81D">
-<createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:49:43 UTC</createdTime>
-<generatorID>3075B6B4-91C6-A8F3-22D1-B5FAD5C2664A</generatorID>
-<ownerDesignName>logical</ownerDesignName>
-<engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
-</engineerTo>
-<referedAttribute>18325F3D-E002-92C8-D8F5-5789FDAD8C19</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="F9ADF69B-2DB8-BE81-B92A-C6410097F299" name="Divorcio PK">
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 04:03:47 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

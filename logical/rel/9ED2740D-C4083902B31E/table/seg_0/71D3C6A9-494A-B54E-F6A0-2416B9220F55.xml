@@ -160,6 +160,33 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Tercer_nombre" id="9AB48DD5-5D5F-4B67-2B57-EA8534767599">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>88476F64-F5EA-0AE8-2249-5A74E9AE4BA1</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Acta_naciemineo_Id_acta" id="0A57B5C1-16E3-192A-9AD6-4D0765175CBF">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>876B78CA-8AF5-1F95-7736-91A19A764F25</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3BC4B337-B9D0-7A5F-2C3C-E95F9B9E6038" referredColumn="5F03651D-86A3-FD75-5714-3D8F62796430"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="EFD3DD17-F971-65E3-5DDB-8434DBD7459A" name="persona_PK">
@@ -205,6 +232,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="156BEE49-3D9A-CDD3-49AD-A34E6783F1B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6EB6F39C-83DA-2D2A-BCB7-E5194352EDC2" name="persona_Acta_naciemineo_FK">
+<createdBy>jerry</createdBy>
+<createdTime>2022-05-04 04:08:14 UTC</createdTime>
+<generatorID>09041586-9A8A-ED7A-7F4C-9346164B7EBD</generatorID>
+<ownerDesignName>logical</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A57B5C1-16E3-192A-9AD6-4D0765175CBF"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

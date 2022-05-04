@@ -42,9 +42,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="C7F25EA8-8539-92F2-6D9A-4CDD79052D61" referredColumn="5CACFD53-91E6-B464-8523-3B55B24B942A"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -58,17 +55,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9A565237-2C81-2D3E-7F43-5161C2B41529"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="ACD22051-EA8D-3D79-E11C-39EC288D9AE5" name="Divorcio_detalle_matrimonio_divocio_FK">
-<createdBy>jerry</createdBy>
-<createdTime>2022-04-28 17:30:59 UTC</createdTime>
-<generatorID>3075B6B4-91C6-A8F3-22D1-B5FAD5C2664A</generatorID>
-<ownerDesignName>logical</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="8592AC81-1F02-150B-469F-EC7D3E8B38D0"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

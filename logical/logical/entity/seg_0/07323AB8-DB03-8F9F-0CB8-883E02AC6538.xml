@@ -27,35 +27,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_licencia" id="295D0783-013A-7A50-4FC3-70ED997637D5">
-<createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:11:43 UTC</createdTime>
-<ownerDesignName>logical</ownerDesignName>
-<engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="id_defuncion" id="E9CD1207-8499-5D65-B815-36E8193DB1E8">
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 04:12:09 UTC</createdTime>
-<ownerDesignName>logical</ownerDesignName>
-<engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="acta_nacimiento" id="048037AD-A095-A868-027F-8E5E7D02A486">
-<createdBy>jerry</createdBy>
-<createdTime>2022-04-28 04:19:22 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
 <engineerTo>
 <item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
@@ -100,8 +74,9 @@
 <createdBy>jerry</createdBy>
 <createdTime>2022-04-28 04:12:07 UTC</createdTime>
 <ownerDesignName>logical</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="true"/>
+<item key="9ED2740D-F308-0EFC-390B-C4083902B31E" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

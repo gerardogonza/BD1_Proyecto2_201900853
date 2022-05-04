@@ -157,7 +157,7 @@ BEGIN
             end if;
             ELSE
               INSERT INTO defuncion(fecha_fallecimiento, motivo) VALUES (fechaFallecio,motivo);
-              INSERT INTO detalle_persona(id_licencia, id_defuncion) VALUES (null,IDDEFUNCION);
+              INSERT INTO detalle_persona( id_defuncion) VALUES (IDDEFUNCION);
               UPDATE persona SET id_detalle_persona=IDDETALLE WHERE cui=cuifallecido;
           end if;
            ELSE
@@ -422,6 +422,170 @@ END;
 
 
 CALL AddDivorcio(5,'2040-10-10');
+# --------------------------------------------------Registrar Licencia------------------------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE AddLicencia(IN cui bigint,fechaEmision date, tipo char)
+BEGIN
+    IF CantidadLicencias(cui)=0 THEN
+        IF ValidarFechaEmision(cui,fechaEmision)>=16 THEN
+            IF TipoLicenciaValida(tipo) THEN
+                select DATE_ADD(fechaEmision, INTERVAL 1 YEAR ) INTO @renovacion;
+                INSERT INTO licencia(cui, tipo_licencia, fecha_emision, fecha_renovacion, id_anulacion)
+                VALUES (cui,tipo,fechaEmision, @renovacion,null);
+                ELSE
+                    SELECT 'Este tipo no es valido par primera Licencia';
+            end if ;
+            ELSE
+                SELECT 'Aun No Tienes Edad';
+        end if ;
+        ELSE
+            SELECT 'Tiene mas  Licencias';
+    end if;
+END$$
+DELIMITER;
+
+CALL AddLicencia(1111111110101,'2020-02-18','C');
+
+
+CREATE FUNCTION CantidadLicencias(
+    dpi bigint
+)
+    RETURNS int
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado int;
+    SELECT COUNT(CUI)  INTO @EDAD
+    FROM licencia
+    WHERE dpi=cui ;
+    SET resultado=@EDAD;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CREATE FUNCTION TipoLicenciaValida(
+    tipo char
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (tipo='E' OR tipo='C' OR tipo='M') THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+# ===================================================Renovar Licencia===================================================================
+drop procedure renewLicencia;
+DELIMITER $$
+CREATE PROCEDURE renewLicencia(IN nolicencia int,fechaRenovacion date, tipo char)
+BEGIN
+    IF VerSiExisteLicencia(nolicencia)THEN
+        IF YaVencioLicencia(nolicencia,fechaRenovacion)>=0 THEN
+            SELECT 'se renueva la misma fecha que mandan';
+            IF TipoRenovacion(nolicencia,tipo)THEN
+                select DATE_ADD(fechaRenovacion, INTERVAL 1 YEAR ) INTO @renovacion;
+                UPDATE licencia SET fecha_renovacion=@renovacion WHERE id_licencia=nolicencia;
+                UPDATE licencia SET tipo_licencia=tipo  WHERE id_licencia=nolicencia;
+            ELSE
+                SELECT 'Aun no aplicas para esa renovacion';
+            end if ;
+            ELSE
+                IF TipoRenovacion(nolicencia,tipo)THEN
+                    SELECT fecha_emision FROM licencia where id_licencia=nolicencia INTO @fecha;
+                    select DATE_ADD(@fecha, INTERVAL 2 YEAR ) INTO @renovacion;
+                    UPDATE licencia SET fecha_renovacion=@renovacion WHERE id_licencia=nolicencia;
+                    UPDATE licencia SET tipo_licencia=tipo  WHERE id_licencia=nolicencia;
+                    ELSE
+                    SELECT 'Aun no aplicas para esa renovacion';
+                end if ;
+        end if;
+        ELSE
+        SELECT 'No Existe Licencia';
+    end if;
+END$$
+DELIMITER;
+
+
+
+CREATE FUNCTION VerSiExisteLicencia(
+    id int
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (id in(SELECT id_licencia FROM licencia)) THEN
+        SET resultado=true;
+    ELSE
+        SET resultado = false;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CREATE FUNCTION YaVencioLicencia(
+    id int,
+    fechad date
+)
+    RETURNS int
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado int;
+    SELECT TIMESTAMPDIFF(DAY ,fecha_renovacion,fechad)  INTO @EDAD
+    FROM licencia
+    WHERE id_licencia=id ;
+    SET resultado=@EDAD;
+    -- return the customer level
+    RETURN (resultado);
+END;
+
+CREATE FUNCTION TipoRenovacion(
+    id int,
+    tipo char
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+
+    IF (  SELECT tipo_licencia FROM licencia WHERE id_licencia=id AND tipo_licencia='C')='C' THEN
+        IF (tipo='B')THEN
+            SELECT CUI from licencia where id_licencia=id INTO @CUI;
+            IF ValidarMayoriaEdad(@CUI)>=23 THEN
+                SET resultado=true;
+            ELSE
+                SET resultado=FALSE;
+            end if;
+        ELSE
+            SET resultado=FALSE;
+        end if;
+    END IF;
+    IF (  SELECT tipo_licencia FROM licencia WHERE id_licencia=id AND tipo_licencia='B')='B' THEN
+        IF (tipo='A')THEN
+            SELECT CUI from licencia where id_licencia=id INTO @CUI;
+            IF ValidarMayoriaEdad(@CUI)>=25 THEN
+                SET resultado=true;
+            ELSE
+                SET resultado=FALSE;
+            end if;
+        ELSE
+            SET resultado=FALSE;
+        end if;
+    END IF;
+    IF (  SELECT tipo_licencia FROM licencia WHERE id_licencia=id AND tipo_licencia='C')='C' THEN
+        IF (tipo='C')THEN
+            SET resultado=true;
+        ELSE
+            SET resultado=FALSE;
+        end if;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
+CALL renewLicencia (1,'2019-1-1','C');
 # ---------------------------------------------------- CONSULTA 8 ------------------------------------------------------------------------
 DELIMITER $$
 CREATE PROCEDURE generarDPI(IN cui bigint,fechaEmision date, municipio int)
@@ -475,7 +639,7 @@ DELIMITER;
 CALL getNacimiento(1111111630409);
 
 # ------------------------------------------- Obtener DPI -----------------------------------------------------------------------------------
-DROP PROCEDURE getDPI;
+
 DELIMITER $$
 CREATE PROCEDURE getDPI(IN cui1 bigint)
 BEGIN
@@ -507,7 +671,7 @@ DELIMITER;
 CALL getDPI(1129958074101);
 
 #------------------------------------------ .Obtener Divorcio ---------------------------------------------------
-DROP PROCEDURE getDivorcio;
+
 DELIMITER $$
 CREATE PROCEDURE getDivorcio()
 BEGIN
@@ -520,7 +684,7 @@ DELIMITER;
 CALL getDivorcio();
 
 # -------------------------------------------- Acta De Defuncion -------------------------------------------------------
-DROP PROCEDURE getDefuncion;
+
 DELIMITER $$
 CREATE PROCEDURE getDefuncion(IN CUI1 bigint)
 BEGIN
@@ -540,7 +704,7 @@ DELIMITER;
 CALL getDefuncion(1111111620101);
 
 # -------------------------------------------- Obtener Matrimonio -------------------------------------------------------\
-DROP PROCEDURE getMatrimonio;
+
 DELIMITER $$
 CREATE PROCEDURE getMatrimonio(IN acta int)
 BEGIN

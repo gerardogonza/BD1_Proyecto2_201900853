@@ -439,12 +439,63 @@ BEGIN
                 SELECT 'Aun No Tienes Edad';
         end if ;
         ELSE
-            SELECT 'Tiene mas  Licencias';
+            IF (tipo='E')THEN
+                select DATE_ADD(fechaEmision, INTERVAL 1 YEAR ) INTO @renovacion;
+                INSERT INTO licencia(cui, tipo_licencia, fecha_emision, fecha_renovacion, id_anulacion)
+                VALUES (cui,tipo,fechaEmision, @renovacion,null);
+            end if ;
+            IF (tipo='M')THEN
+                select DATE_ADD(fechaEmision, INTERVAL 1 YEAR ) INTO @renovacion;
+                INSERT INTO licencia(cui, tipo_licencia, fecha_emision, fecha_renovacion, id_anulacion)
+                VALUES (cui,tipo,fechaEmision, @renovacion,null);
+            end if ;
+            IF (tipo='B' OR tipo='A')THEN
+                IF vertipo(tipo,cui) THEN
+                    select DATE_ADD(fechaEmision, INTERVAL 1 YEAR ) INTO @renovacion;
+                    INSERT INTO licencia(cui, tipo_licencia, fecha_emision, fecha_renovacion, id_anulacion)
+                    VALUES (cui,tipo,fechaEmision, @renovacion,null);
+                    ELSE
+                    SELECT 'No cuentas con requisitos';
+                end if ;
+
+            end if ;
     end if;
 END$$
 DELIMITER;
 
-CALL AddLicencia(1111111110101,'2020-02-18','C');
+CREATE FUNCTION vertipo(
+    tipo char,
+    cui1 bigint
+)
+    RETURNS boolean
+    DETERMINISTIC
+BEGIN
+    DECLARE resultado boolean;
+    IF (tipo='B') THEN
+        IF (SELECT tipo_licencia FROM licencia WHERE cui1=CUI AND tipo_licencia='C')='C' THEN
+            IF ValidarMayoriaEdad(cui1)>=23 THEN
+                SET resultado=true;
+            ELSE
+                SET resultado=FALSE;
+            end if;
+            ELSE
+                SET resultado = false;
+        end if;
+
+    ELSE
+        IF (SELECT tipo_licencia FROM licencia WHERE cui1=CUI AND tipo_licencia='B')='B' THEN
+            IF ValidarMayoriaEdad(cui1)>=25 THEN
+                SET resultado=true;
+            ELSE
+                SET resultado=FALSE;
+            end if;
+        ELSE
+            SET resultado = false;
+        end if;
+    END IF;
+    -- return the customer level
+    RETURN (resultado);
+END;
 
 
 CREATE FUNCTION CantidadLicencias(
@@ -477,6 +528,8 @@ BEGIN
     -- return the customer level
     RETURN (resultado);
 END;
+
+CALL AddLicencia(1111111110101,'2020-02-18','M');
 # ===================================================Renovar Licencia===================================================================
 drop procedure renewLicencia;
 DELIMITER $$
@@ -586,6 +639,24 @@ BEGIN
     RETURN (resultado);
 END;
 CALL renewLicencia (1,'2019-1-1','C');
+
+# ===================================================Anular Licencia=================================================================
+DELIMITER $$
+CREATE PROCEDURE anularLicencia(IN nolicencia int,fechaAnulacion date, motivo1 varchar(50))
+BEGIN
+    DECLARE idanulacion int;
+    SET idanulacion= (SELECT COUNT(*)+1 FROM licencia_anulada);
+    IF VerSiExisteLicencia(nolicencia)THEN
+        INSERT INTO licencia_anulada(fecha_anulacion, motivo) VALUES
+            (fechaAnulacion,motivo1);
+        UPDATE licencia set id_anulacion=idanulacion WHERE id_licencia=nolicencia;
+        ELSE
+        SELECT 'No Existe licencia';
+    end if;
+
+END$$
+DELIMITER;
+
 # ---------------------------------------------------- CONSULTA 8 ------------------------------------------------------------------------
 DELIMITER $$
 CREATE PROCEDURE generarDPI(IN cui bigint,fechaEmision date, municipio int)
@@ -669,7 +740,20 @@ END$$
 DELIMITER;
 
 CALL getDPI(1129958074101);
+#==========================================.Obtener Licencias Registradas======================================
+DROP procedure getLicencias;
+DELIMITER $$
+CREATE PROCEDURE getLicencias(in cui1 bigint)
+BEGIN
+   SELECT id_licencia,concat_ws(' ', persona.primer_nombre,persona.segundo_nombre)AS Nombres,
+          concat_ws(' ', persona.primer_apellido,persona.segundo_apellido)AS Apellidos,fecha_emision,fecha_renovacion
+   from licencia,persona
+   WHERE licencia.CUI=cui1
+   AND licencia.CUI=persona.cui;
+END$$
+DELIMITER;
 
+CALL getLicencias(1111111110101);
 #------------------------------------------ .Obtener Divorcio ---------------------------------------------------
 
 DELIMITER $$

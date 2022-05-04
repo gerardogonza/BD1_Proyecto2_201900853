@@ -1,0 +1,14 @@
+call AddNacimiento(1209090600101,1232080975101,'David','Alejando','Saul','2020-01-10',409,'M');
+CALL AddDefuncion(1119706264101,'2022-10-11','mucho cigarro');
+CALL AddMatrimonio(1123462592101,1129958074101,'2025-10-12');
+CALL AddDivorcio(5,'2040-10-10');
+CALL AddLicencia(1111111110101,'2020-02-18','M');
+CALL renewLicencia (1,'2019-1-1','C');
+CALL anularLicencia(1,'2020-1-1','Manejando Ebrio');
+CALL generarDPI(1129958074101,'2020-08-23',101);
+CALL getNacimiento(1111111630409);
+CALL getDPI(1129958074101);
+CALL getLicencias(1111111110101);
+CALL getDivorcio();
+CALL getDefuncion(1111111620101);
+CALL getMatrimonio(1);
